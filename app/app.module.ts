@@ -1,7 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MaterialModule} from '@angular/material';
+import { MaterialModule } from '@angular/material';
 import { HttpModule, JsonpModule }  from '@angular/http';
+//import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent }  from './app.component';
 

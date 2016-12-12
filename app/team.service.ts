@@ -5,6 +5,9 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Match } from './match';
 import { Observable }     from 'rxjs/Observable';
 
+import './rxjs-operators';
+
+
 @Injectable()
 export class TeamService {
   private teamURL = 'http://beta.hoesnelwasik.nl/api/wd/overview/';  // URL to web API
@@ -15,6 +18,11 @@ export class TeamService {
     return this.http.get(this.teamURL)
                     .map(this.extractData)
                     .catch(this.handleError);
+  }
+
+  startPolling () {
+    return Observable
+            .interval(1000);
   }
 
   private extractData(res: Response) {

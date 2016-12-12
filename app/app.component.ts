@@ -16,14 +16,22 @@ import './rxjs-operators';
 export class AppComponent {
 
     wd = new Match(null,null,null,null);
-    constructor(private teamService: TeamService){}
+    constructor(private teamService: TeamService){ }
 
-    ngOnInit() { this.getTeams(); }
+    ngOnInit() { this.getPolling(); }
 
     getTeams() {
         this.teamService.getTeams()
         .subscribe(
             teams => this.wd = teams
             );
-    } 
+    }
+
+    getPolling() {
+        this.teamService.startPolling()
+        .subscribe(
+            polling => this.getTeams()
+            );
+    }
+
 }

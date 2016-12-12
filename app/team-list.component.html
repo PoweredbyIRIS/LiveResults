@@ -5,27 +5,195 @@ This page uses advance web technologie only the latest and greatest browser are 
     <md-tab-group>
         <md-tab label="splash1">
             <ul>
-                <li *ngFor="let crew of wd.teams">{{crew.teamname}}</li>
+                <li *ngFor="let row of wd.teams">
+                   <td>
+                    {{row.rank}} / {{row.participants}}
+                  </td>
+                   <td hide show-gt-md>
+                     <span ng-if="row.fieldnameshortsub !== '0'">
+                       {{row.fieldnameshortsub}}
+                     </span>
+                     <span ng-if="row.fieldnameshortsub === '0'">
+                       {{row.fieldnameshort}}
+                     </span>
+                   </td>
+                  <td>
+                    {{row.backnumber}}
+                  </td>
+                  <td style="max-width: 150px">
+                    <a href="">
+                      {{row.teamname}}
+                    </a>
+                  </td>
+                  <td hide show-gt-md>
+                    {{row.rower8}}
+                  </td>
+                  <td>
+                    {{row.splash1}}
+                  </td>
+                    </li>
             </ul>
         </md-tab>
         <md-tab label="splash2">
             <ul>
-                <li *ngFor="let crew of wd.teams">{{crew.fieldnameshort}}</li>
+                <li *ngFor="let row of wd.teams">
+                   <td>
+                    {{row.rank}} / {{row.participants}}
+                  </td>
+                   <td hide show-gt-md>
+                     <span ng-if="row.fieldnameshortsub !== '0'">
+                       {{row.fieldnameshortsub}}
+                     </span>
+                     <span ng-if="row.fieldnameshortsub === '0'">
+                       {{row.fieldnameshort}}
+                     </span>
+                   </td>
+                  <td>
+                    {{row.backnumber}}
+                  </td>
+                  <td style="max-width: 150px">
+                    <a href="">
+                      {{row.teamname}}
+                    </a>
+                  </td>
+                  <td hide show-gt-md>
+                    {{row.rower8}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash1}}
+                  </td>
+                  <td>
+                    {{row.splash2}}
+                  </td>
+                    </li>
             </ul>
         </md-tab>
         <md-tab label="splash3">
             <ul>
-                <li *ngFor="let crew of wd.teams">{{crew.teamname}}</li>
+                <li *ngFor="let row of wd.teams">
+                   <td>
+                    {{row.rank}} / {{row.participants}}
+                  </td>
+                   <td hide show-gt-md>
+                     <span ng-if="row.fieldnameshortsub !== '0'">
+                       {{row.fieldnameshortsub}}
+                     </span>
+                     <span ng-if="row.fieldnameshortsub === '0'">
+                       {{row.fieldnameshort}}
+                     </span>
+                   </td>
+                  <td>
+                    {{row.backnumber}}
+                  </td>
+                  <td style="max-width: 150px">
+                    <a href="">
+                      {{row.teamname}}
+                    </a>
+                  </td>
+                    <td class="hidden-xs" [hidden]=show-gt-md>
+                    {{row.rower8}}
+                  </td>
+                  <td [hidden]=true show-gt-sm>
+                    {{row.splash1}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash2}}
+                  </td>
+                  <td>
+                    {{row.splash3}}
+                  </td>
+                    </li>
             </ul>
         </md-tab>
         <md-tab label="splash4">
             <ul>
-                <li *ngFor="let crew of wd.teams">{{crew.teamname}}</li>
+                <li *ngFor="let row of wd.teams">
+                   <td>
+                    {{row.rank}} / {{row.participants}}
+                  </td>
+                   <td hide show-gt-md>
+                     <span ng-if="row.fieldnameshortsub !== '0'">
+                       {{row.fieldnameshortsub}}
+                     </span>
+                     <span ng-if="row.fieldnameshortsub === '0'">
+                       {{row.fieldnameshort}}
+                     </span>
+                   </td>
+                  <td>
+                    {{row.backnumber}}
+                  </td>
+                  <td style="max-width: 150px">
+                    <a href="">
+                      {{row.teamname}}
+                    </a>
+                  </td>
+                  <td hide show-gt-md>
+                    {{row.rower8}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash1}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash2}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash3}}
+                  </td>
+                  <td>
+                    {{row.splash4}}
+                  </td>
+                    </li>
             </ul>
         </md-tab>
         <md-tab label="Finish">
             <ul>
-                <li *ngFor="let crew of wd.teams">{{crew.clubname}}</li>
+                <li *ngFor="let row of wd.teams">
+                   <td>
+                    {{row.rank}} / {{row.participants}}
+                  </td>
+                   <td hide show-gt-md>
+                     <span ng-if="row.fieldnameshortsub !== '0'">
+                       {{row.fieldnameshortsub}}
+                     </span>
+                     <span ng-if="row.fieldnameshortsub === '0'">
+                       {{row.fieldnameshort}}
+                     </span>
+                   </td>
+                  <td>
+                    {{row.backnumber}}
+                  </td>
+                  <td style="max-width: 150px">
+                    <a href="">
+                      {{row.teamname}}
+                    </a>
+                  </td>
+                  <td hide show-gt-md>
+                    {{row.rower8}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash1}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash2}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash3}}
+                  </td>
+                  <td hide show-gt-sm>
+                    {{row.splash4}}
+                  </td>
+                  <td>
+                    <span *ngIf="row.disqualified==1">
+                      Gedisqualificeerd
+                    </span>
+                    <span *ngIf="row.excluded==1">
+                      Excluded
+                    </span>
+                    <span *ngIf="row.excluded==0 && row.disqualified==0">
+                      {{row.totaltime + row.bonussecond}}
+                    </span>
+                  </td>
+                    </li>
             </ul>
         </md-tab>
     </md-tab-group>
