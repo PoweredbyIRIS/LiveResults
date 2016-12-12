@@ -1,35 +1,50 @@
 import { Match } from './match';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Optional } from '@angular/core';
 import { TeamService} from './team.service';
-import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
-
+import { MdDialog, MdDialogRef, MdSnackBar, MdTabChangeEvent } from '@angular/material';
+import './rxjs-operators';
 
 
 @Component({
-  moduleId: module.id,
-  selector: 'material2-app-app',
-  templateUrl: 'team-list.component.html',
+  selector: 'my-app',
+  templateUrl: 'app/team-list.component.html',
+  styleUrls: ['app/app.component.css'],
   providers: [ TeamService ],
 })
-export class TeamListComponent {
 
-    //wd: Match;
-    //crews: TeamSimpel[];
-    wd = new Match(null,null,null,null);
-    constructor(private teamService: TeamService){}
+export class AppComponent {
 
-    ngOnInit() { this.getTeams(); }
+    private wd = new Match(null,null,null,null);
+    matchTeams = [this.wd,this.wd,this.wd,this.wd,this.wd];
+    location :number = 1;
 
-    getTeams() {
-        this.teamService.getTeams()
+
+    constructor(private teamService: TeamService){ }
+    
+    ngOnInit() {
+      this.getPolling();
+      this.getTeams()
+    }
+
+     changeLocation(e: MdTabChangeEvent) {
+      this.location = e.index + 1;
+      this.getTeams()
+    }
+
+    private getTeams() {
+        this.teamService.getTeams(this.location)
         .subscribe(
-            //teams => this.crews = teams.teams,
-            teams => this.wd = teams
-            //teams => this.wd = new Match(teams.match,teams.message,teams.error,teams.teams)
-            );
-    } 
+            teams => this.matchTeams[this.location-1] = teams
+        );
+    }
+
+    private getPolling() {
+        this.teamService.startPolling()
+        .subscribe(
+            polling => this.getTeams(),
+        );
+    }
+
+    
+
 }
-
-
-
-

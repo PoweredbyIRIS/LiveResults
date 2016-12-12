@@ -10,19 +10,19 @@ import './rxjs-operators';
 
 @Injectable()
 export class TeamService {
-  private teamURL = 'http://beta.hoesnelwasik.nl/api/wd/overview/';  // URL to web API
+  private teamURL = 'http://beta.hoesnelwasik.nl/api/overview/';  // URL to web API
 
   constructor (private http: Http) {}
 
-  getTeams (): Observable<Match> {  
-    return this.http.get(this.teamURL)
+  getTeams (location: number): Observable<Match> {  
+    return this.http.get(this.teamURL + location)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
   startPolling () {
     return Observable
-            .interval(1000);
+            .interval(5000);
   }
 
   private extractData(res: Response) {
