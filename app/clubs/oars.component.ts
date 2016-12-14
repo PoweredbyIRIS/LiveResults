@@ -11,7 +11,7 @@ import { TeamSimpel } from './../lastResults/teamSimpel';
   height: 20px !important;
   width: 48px;
   margin: 5px;
-}`],
+  }`],
 })
 
 export class OarsComponent { 

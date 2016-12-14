@@ -24,7 +24,7 @@ export class TeamSimpel {
                    public splash3: string,
                    public splash4: string,
                    public isapproved: string,
-                   public bonusseconds: string,
+                   public bonussecond: string,
                    public comments: string,
                    public time: string,
                    public fieldnameshortsub: string,
