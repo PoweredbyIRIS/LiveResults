@@ -1,13 +1,13 @@
-import { Match } from './match';
+import { Match } from './lastResults/match';
 import { Component, OnInit,Optional } from '@angular/core';
-import { TeamService} from './team.service';
+import { TeamService} from './services/team.service';
 import { MdDialog, MdDialogRef, MdSnackBar, MdTabChangeEvent } from '@angular/material';
 import './rxjs-operators';
 
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/team-list.component.html',
+  templateUrl: 'app/app.component.html',
   styleUrls: ['app/app.component.css'],
   providers: [ TeamService ],
 })

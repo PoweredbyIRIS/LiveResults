@@ -2,10 +2,10 @@ import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 
-import { Match } from './match';
+import { Match } from './../lastResults/match';
 import { Observable }     from 'rxjs/Observable';
 
-import './rxjs-operators';
+import './../rxjs-operators';
 
 
 @Injectable()
@@ -22,7 +22,7 @@ export class TeamService {
 
   startPolling () {
     return Observable
-            .interval(5000);
+            .interval(50000);
   }
 
   private extractData(res: Response) {

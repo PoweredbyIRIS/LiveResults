@@ -1,0 +1,44 @@
+<h1>A list of teams at {{ matchTeams[0].match}}</h1>
+This page uses advance web technologie only the latest and greatest browser are supported
+<h3>Teams:</h3>
+<md-card>
+    <md-tab-group (selectChange)="changeLocation($event)">
+        <md-tab label="splash1">
+            <ul>
+                <li *ngFor="let row of matchTeams[0].teams; trackBy:row?.raceid">
+                  <teamSimpelteam [team]=row [location]=1> </teamSimpelteam>
+                </li>
+            </ul>
+        </md-tab>
+        <md-tab label="splash2">
+            <ul>
+                <li *ngFor="let row of matchTeams[1].teams; trackBy:row?.raceid">
+                  <teamSimpelteam [team]=row [location]=2> </teamSimpelteam>
+                </li>
+            </ul>
+        </md-tab>
+        <md-tab label="splash3">
+            <ul>
+                <li *ngFor="let row of matchTeams[2].teams; trackBy:row?.raceid">
+                  <teamSimpelteam [team]=row [location]=3> </teamSimpelteam>
+                </li>
+            </ul>
+        </md-tab>
+        <md-tab label="splash4">
+            <ul>
+                <li *ngFor="let row of matchTeams[3].teams; trackBy:row?.raceid">
+                  <teamSimpelteam [team]=row [location]=4> </teamSimpelteam>
+                </li>
+            </ul>
+        </md-tab>
+        <md-tab label="Finish">
+            <ul>
+                <li *ngFor="let row of matchTeams[4].teams; trackBy:row?.raceid">
+                  <teamSimpelteam [team]=row [location]=5> </teamSimpelteam>
+                </li>
+            </ul>
+        </md-tab>
+    </md-tab-group>
+</md-card>
+
+<!--<p class="error" *ngIf="errorMessage">{{errorMessage}}</p> -->

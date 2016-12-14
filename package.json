@@ -2,6 +2,11 @@
   "name": "LiveDashBoard",
   "version": "0.0.1",
   "scripts": {
+    "clean": "rm -rf dist && mkdir dist",
+    "serve": "http-server . -p 5556",
+    "build": "npm run clean && tsc",
+    "build_prod": "npm run build && browserify -s main app/main.js > dist/bundle.js && npm run minify",
+    "minify": "uglifyjs dist/bundle.js --screw-ie8 --compress --mangle --output dist/bundle.min.js",
     "start": "tsc && concurrently && npm run tsc:w & npm run lite",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
     "lint": "tslint ./app/**/*.ts -t verbose",
@@ -29,8 +34,8 @@
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-rc.4",
     "systemjs": "0.19.40",
-    "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "ts-helpers": "^1.1.1"
   },
   "devDependencies": {
     "@types/hammerjs": "^2.0.33",
@@ -52,7 +57,9 @@
     "rimraf": "^2.5.4",
     "tslint": "^3.15.1",
     "typescript": "^2.1",
-    "webdriver-manager": "10.2.10"
+    "webdriver-manager": "10.2.10",
+    "browserify": "^13.0.1",
+    "uglifyjs": "^2.4.10"
   },
   "repository": {}
 }
