@@ -22,7 +22,7 @@ export class TeamService {
 
   startPolling () {
     return Observable
-            .interval(50000);
+            .interval(5000);
   }
 
   private extractData(res: Response) {

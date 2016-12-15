@@ -1,22 +1,22 @@
-<h1>A list of teams at {{ matchTeams[0].match}}</h1>
-This page uses advance web technologie only the latest and greatest browser are supported
-<h3>Teams:</h3>
+<h1>{{ matchTeams[0].match}}</h1>
+<!--This page uses advance web technologie only the latest and greatest browser are supported -->
+<div Melding [innerHTML]="matchTeams[0].message"></div>
 <md-card>
     <md-tab-group (selectChange)="changeLocation($event)">
-        <md-tab label="splash1">
-            <teamSimpelteam [teams]=matchTeams[0].teams [location]=1> </teamSimpelteam>
+        <md-tab label="1000M">
+            <lastResultsTable [teams]=matchTeams[0].teams [location]=1> </lastResultsTable>
         </md-tab>
-        <md-tab label="splash2">
-            <teamSimpelteam [teams]=matchTeams[1].teams [location]=2> </teamSimpelteam>
+        <md-tab label="2000M">
+            <lastResultsTable [teams]=matchTeams[1].teams [location]=2> </lastResultsTable>
         </md-tab>
-        <md-tab label="splash3">
-            <teamSimpelteam [teams]=matchTeams[2].teams [location]=3> </teamSimpelteam>
+        <md-tab label="3000M">
+            <lastResultsTable [teams]=matchTeams[2].teams [location]=3> </lastResultsTable>
         </md-tab>
-        <md-tab label="splash4">
-            <teamSimpelteam [teams]=matchTeams[3].teams [location]=4> </teamSimpelteam>
+        <md-tab label="4000M">
+            <lastResultsTable [teams]=matchTeams[3].teams [location]=4> </lastResultsTable>
         </md-tab>
         <md-tab label="Finish">
-            <teamSimpelteam [teams]=matchTeams[4].teams [location]=5> </teamSimpelteam>
+            <lastResultsTable [teams]=matchTeams[4].teams [location]=5> </lastResultsTable>
         </md-tab>
     </md-tab-group>
 </md-card>

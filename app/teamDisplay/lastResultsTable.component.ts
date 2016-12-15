@@ -1,14 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewContainerRef, NgModule } from '@angular/core';
+import { MaterialModule, MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
+import { TeamComponent } from './team.component';
 import { TeamSimpel } from './../lastResults/teamSimpel';
 import { Time } from './time';
 
 
 @Component({
-  selector: 'teamSimpelteam',
+  selector: 'lastResultsTable',
   template: `<table class="table">
             <thead>
             <tr>
-            <th></th>
+            <th class="show-gt-md"></th>
             <th style="max-width: 50px">
                 Pos
             </th>
@@ -41,8 +43,8 @@ import { Time } from './time';
             </th>
         </tr>
         </thead>
-        <tr *ngFor="let team of teams; trackBy:row?.raceid">
-              <td>
+        <tr *ngFor="let team of teams; trackBy:row?.raceid" (click)="openTeam(team)">
+              <td class="show-gt-md">
                 <club-oars [team]=team></club-oars>
             </td>
             <td>
@@ -59,10 +61,8 @@ import { Time } from './time';
             <td>
                 {{team.backnumber}}
             </td>
-            <td style="max-width: 150px">
-                <a href="">
-                    {{team.teamname}}
-                </a>
+            <td class="teamname" style="max-width: 150px">
+                {{team.teamname}}
             </td>
             <td class="show-gt-md">
                 {{team.rower8}}
@@ -91,18 +91,27 @@ import { Time } from './time';
                 </span>
             </td>
         </tr>`,
-  styles: [`
-            .show-gt-md {
+  styles: [`.show-gt-md {
                 max-width:150px;
             }
-            @media screen and (max-width:600px) {  .show-gt-md {display: none;}}
+            .teamname {
+                font-weight: 500;
+            }
+            .teamname:hover {
+                cursor: pointer;
+            }
+            td {
+                text-align: center;
+            }
+            @media screen and (max-width:800px) {  .show-gt-md {display: none;}}
             @media screen and (max-width:480px) {  .show-gt-sm {display: none;}}
           }`],
   providers: [ Time ],
 })
 
-export class TeamSimpelComponent { 
-    constructor(private time: Time){ }
+export class LastResultsTableComponent { 
+    constructor(private time: Time, public team: MdDialog, public viewContainerRef: ViewContainerRef){ }
+    dialogRef: MdDialogRef<any>;
     @Input() teams: TeamSimpel[];
     @Input() location: number;
     setClasses(splash : number) {     
@@ -115,5 +124,15 @@ export class TeamSimpelComponent {
 
     finalTime(time : string, bonussecond: string) {
         return this.time.finalTime(time,bonussecond);
+    }
+
+    openTeam(team :TeamSimpel) {
+        let config = new MdDialogConfig();
+        config.viewContainerRef = this.viewContainerRef;
+        this.dialogRef = this.team.open(TeamComponent, config);
+        this.dialogRef.componentInstance.team = team;
+        this.dialogRef.afterClosed().subscribe(result => {
+        this.dialogRef = null;
+        });
     }
 }

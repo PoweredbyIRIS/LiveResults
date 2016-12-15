@@ -6,11 +6,13 @@ import { HttpModule, JsonpModule }  from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { OarsComponent } from './clubs/oars.component';
-import { TeamSimpelComponent } from './teamDisplay/teamSimpel.component';
+import { TeamComponent } from './teamDisplay/team.component';
+import { LastResultsTableComponent } from './teamDisplay/lastResultsTable.component';
 
 @NgModule({
   imports:      [ BrowserModule,HttpModule,JsonpModule,MaterialModule.forRoot() ],
-  declarations: [ AppComponent,OarsComponent,TeamSimpelComponent ],
+  declarations: [ AppComponent,OarsComponent,TeamComponent,LastResultsTableComponent ],
+  entryComponents: [TeamComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
