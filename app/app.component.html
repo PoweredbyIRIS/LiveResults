@@ -1,6 +1,6 @@
 <h1>{{ matchTeams[0].match}}</h1>
 <!--This page uses advance web technologie only the latest and greatest browser are supported -->
-<div Melding [innerHTML]="matchTeams[0].message"></div>
+<div class="message" Melding [innerHTML]="matchTeams[0].message"></div>
 <md-card>
     <md-tab-group (selectChange)="changeLocation($event)">
         <md-tab label="1000M">
