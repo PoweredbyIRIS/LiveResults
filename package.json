@@ -12,7 +12,7 @@
     "lint": "tslint ./app/**/*.ts -t verbose",
     "lite": "lite-server",
     "pree2e": "webdriver-manager update",
-    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
+    "test": "tsc && concurrently \"tsc -w\" \"karma start kFixarma.conf.js\"",
     "test-once": "tsc && karma start karma.conf.js --single-run",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
@@ -22,7 +22,6 @@
     "@angular/common": "~2.3.0",
     "@angular/compiler": "~2.3.0",
     "@angular/core": "~2.3.0",
-    "@angular/flex-layout": "git+https://github.com/angular/flex-layout.git#master",
     "@angular/forms": "~2.3.0",
     "@angular/http": "~2.3.0",
     "@angular/material": "^2.0.0-alpha.11",
