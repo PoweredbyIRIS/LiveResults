@@ -8,6 +8,7 @@ import { AppComponent }  from './app.component';
 import { OarsComponent } from './clubs/oars.component';
 import { TeamComponent } from './teamDisplay/team.component';
 import { LastResultsTableComponent } from './teamDisplay/lastResultsTable.component';
+import 'hammerjs';
 
 @NgModule({
   imports:      [ BrowserModule,HttpModule,JsonpModule,MaterialModule.forRoot() ],
